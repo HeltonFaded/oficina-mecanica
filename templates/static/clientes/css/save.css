@@ -1,0 +1,36 @@
+.salvo-card {
+    background-color: var(--main-color);
+    color: white;
+    width: 100%;
+    margin-top: 40px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.salvo-card h1 {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.salvo-card p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.salvo-card .btn-principal {
+    background-color: var(--dark-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.salvo-card .btn-principal:hover {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}

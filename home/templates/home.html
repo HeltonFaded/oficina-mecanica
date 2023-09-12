@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lavo Jato - Área Administrativa</title>
+    <style>
+        body {
+            background-color: #4a4a4a;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 150px;
+        }
+
+        .button {
+            padding: 15px 30px;
+            background-color: #416aac;
+            color: white;
+            border: none;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bem-vindo à Área Administrativa do Lavo Jato</h1>
+        <button class="button">
+            <a href="{% url 'clientes' %}" style="color: white; text-decoration: none;">Gerenciar Clientes</a>
+        </button>
+        <br>
+        <button class="button">
+            <a href="{% url 'listar_servico' %}" style="color: white; text-decoration: none;">Gerenciar Serviços</a>
+        </button>
+    </div>
+</body>
+</html>

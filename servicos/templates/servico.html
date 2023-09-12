@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'clientes/css/clientes.css' %}">
+    <link rel="stylesheet" href="{% static 'servicos/css/listar_servico.css' %}">
+{% endblock %}
+
+
+{% block 'dashboard' %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container" style="text-align: center;">
+    <button style="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        <a href="{% url 'gerar_os' servico.identificador %}" style="color: white; text-decoration: none;">Baixar ordem de serviço</a>
+    </button>
+    
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        solicitar novo tipo de serviço
+      </button>
+      
+      <br>  
+    <span style="font-size: 20px;"> Serviço :  {{servico.titulo}}</span>
+</div>
+
+<style>
+    :root {
+        --main-color: #416aac;
+        --dark-color: #2d3d41;
+        --light-color: #7fc2ff;
+        --contrast-color: #6388f8;
+        --differential-color: #9ae2ff;
+    }
+</style>
+
+{% endblock %}
+
+{% block 'body' %}
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="myModalLabel">Servico adicional</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form action = "{% url 'servico_adicional'%}" method="POST">{% csrf_token %}
+
+                <input type = "hidden" name="Identificador_servico" value={{servico.identificador}}>
+                <label>digite o titulo</label>
+                <input type="text" placeholder="titulo" class="form-control" name ='titulo'>
+
+                <label>digite a descrição</label>
+                <input type="text" placeholder="descrição" class="form-control" name ='descrição'>
+
+                <label>digite o preço</label>
+                <input type="number" placeholder="preço" class="form-control" name ='preco'>
+                <br>
+                <input type="submit" class="btn btn-success" value='salvar'>
+            </form>
+        </div>
+        
+        </div>
+    </div>
+    </div>
+
+{% endblock %}
